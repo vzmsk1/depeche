@@ -1,0 +1,45 @@
+.collection {
+	padding-bottom: 2.5rem;
+	
+	display: flex;
+	flex-direction: column;
+	row-gap: 2.6rem;
+	
+	user-select: none;
+}
+.collection:hover .message {
+	grid-template-rows: 1fr;
+}
+.collection:hover .image {
+	transform: scale(1.02);
+}
+
+.imageWrap {
+	height: 32.6rem;
+	overflow: hidden;
+}
+.image {
+	height: 100%;
+	
+	object-fit: cover;
+	
+	transition: transform 0.5s ease;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	row-gap: 1rem;
+	
+	text-align: center;
+}
+
+.message {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.3s ease;
+}
+.messageContent {
+	overflow: hidden;
+}

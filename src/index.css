@@ -1,13 +1,165 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url(https://db.onlinewebfonts.com/c/4d3847a46ccc828409d7f134d765b8c3?family=Brown-Regular);
+
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --fontFamily: 'Brown-Regular', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    
+    height: 100%;
+    
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.2;
+    
+    -webkit-animation: bugfix infinite 1s;
+}
+html {
+    font-family: var(--fontFamily);
+    font-size: 0.5208335vw;
+}
+body {
+    font-size: 1.8rem;
+    
+    color: var(--black);
+    background-color: var(--white);
+}
+
+input,
+textarea {
+    margin: 0;
+    padding: 0;
+    
+    border: none;
+    
+    line-height: inherit;
+    
+    background-color: transparent;
+    color: inherit;
+    
+    -webkit-animation: bugfix infinite 1s;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    margin: 0;
+    
+    -webkit-appearance: none;
+}
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+button,
+input,
+a,
+textarea {
+    font: inherit;
+    
+    outline: none;
+    cursor: pointer;
+    
+    &:focus {
+        outline: none;
+    }
+    
+    &:active {
+        outline: none;
+    }
+}
+
+
+a {
+    color: unset;
+}
+a,
+a:hover {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+}
+
+img {
+    display: block;
+    
+    width: 100%;
+    height: auto;
+    
+    object-fit: contain;
+}
+
+button {
+    padding: 0;
+    
+    border: none;
+    
+    font: inherit;
+    text-align: inherit;
+    
+    color: inherit;
+    background-color: transparent;
+}
+
+ul,
+ul li {
+    padding: 0;
+    margin: 0;
+}
+ul li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    
+    font: inherit;
+}
+
+.container {
+    width: 176rem;
+    margin: 0 auto;
+}
+
+@media (max-width: 48em) {
+    html {
+        font-size: 5px;
+        font-size: 1.5625vw;
+        font-size: calc((100 / 375) * 5vw);
+        
+        -webkit-text-size-adjust: none;
+    }
+    body {
+        font-size: 3rem;
+        
+        -webkit-text-size-adjust: none;
+    }
+
+    .container {
+        padding: 0 3.2rem;
+        
+        width: 100%;
+    }
+}
+@media (min-width: 1920px) {
+    html {
+        font-size: 10px;
+    }
 }
