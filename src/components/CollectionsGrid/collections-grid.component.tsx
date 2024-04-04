@@ -1,11 +1,10 @@
 import Collection from "../Collection/collection.component";
 import styles from "./collections-grid.module.css";
-import cn from "classnames";
 import type { CollectionsGridProps } from "./collections-grid.props";
 
 export default function CollectionsGrid({ collections }: CollectionsGridProps) {
   return (
-    <div className={cn(styles.grid)}>
+    <div className={styles.grid}>
       {collections.map(
         ({ id, heading, message, imageDescription, imageSrc }) => (
           <Collection

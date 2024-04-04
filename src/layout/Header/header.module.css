@@ -1,0 +1,28 @@
+.header {
+	padding: 3rem 0;
+	
+	display: grid;
+	grid-template-columns: 1fr 20rem 1fr;
+	align-items: center;
+	
+	border-bottom: 1px solid #3a3a3a;
+}
+
+.logo {
+	justify-self: center;
+	grid-column: 2/3;
+}
+
+.nav {
+	display: flex;
+	justify-self: end;
+	column-gap: 2rem;
+}
+
+.navLink {
+	font-size: 2rem;
+	text-decoration: underline;
+}
+.navLink:hover {
+	text-decoration: none;
+}

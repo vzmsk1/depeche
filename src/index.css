@@ -133,11 +133,6 @@ h6 {
     font: inherit;
 }
 
-.container {
-    width: 176rem;
-    margin: 0 auto;
-}
-
 @media (max-width: 48em) {
     html {
         font-size: 5px;
@@ -150,12 +145,6 @@ h6 {
         font-size: 3rem;
         
         -webkit-text-size-adjust: none;
-    }
-
-    .container {
-        padding: 0 3.2rem;
-        
-        width: 100%;
     }
 }
 @media (min-width: 1920px) {

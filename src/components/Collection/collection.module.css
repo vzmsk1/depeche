@@ -1,4 +1,4 @@
-.collection {
+.item {
 	padding-bottom: 2.5rem;
 	
 	display: flex;
@@ -7,10 +7,10 @@
 	
 	user-select: none;
 }
-.collection:hover .message {
+.item:hover .message {
 	grid-template-rows: 1fr;
 }
-.collection:hover .image {
+.item:hover .image {
 	transform: scale(1.02);
 }
 
@@ -38,8 +38,16 @@
 .message {
 	display: grid;
 	grid-template-rows: 0fr;
+	
 	transition: grid-template-rows 0.3s ease;
 }
 .messageContent {
 	overflow: hidden;
+}
+
+.link {
+	font-size: 1.5rem;
+	
+	text-transform: uppercase;
+	text-decoration: underline;
 }
