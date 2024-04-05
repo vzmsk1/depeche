@@ -16,13 +16,20 @@
 .nav {
 	display: flex;
 	justify-self: end;
-	column-gap: 2rem;
+	align-items: center;
+	column-gap: 3rem;
 }
 
 .navLink {
 	font-size: 2rem;
-	text-decoration: underline;
 }
 .navLink:hover {
-	text-decoration: none;
+	text-decoration: underline;
+}
+
+.icon {
+	flex: 0 0 4rem;
+	
+	width: 4rem;
+	height: 4rem;
 }
