@@ -34,9 +34,23 @@ export default function SignInForm() {
     try {
       const response = await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields()
-      console.log(response)
     } catch (error) {
       if (error instanceof Error) {
+        switch (error.code) {
+          case 'auth/wrong-password':
+            alert('incorrect password for email')
+            break
+          case 'auth/user-not-found':
+            alert('no user associated with this email')
+            break
+          case 'auth/invalid-email':
+            alert('invalid email')
+            break
+          case 'auth/invalid-credential':
+            alert('email / password is incorrect')
+            break
+          default: console.log(error)
+        }
       }
     }
     
@@ -58,7 +72,7 @@ export default function SignInForm() {
         </div>
         <div className={styles.footer}>
           <Button type='submit'>sign in</Button>
-          <Button buttonType='secondary' onClick={singnInWithGoogle}>or sign in with google</Button>
+          <Button type='button' buttonType='secondary' onClick={singnInWithGoogle}>or sign in with google</Button>
         </div>
       </form>
     </div>

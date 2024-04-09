@@ -6,8 +6,6 @@ import SignInForm from "../../components/sign-in-form/sign-in-form.component";
 import {
   auth,
   createUserDocumentFromAuth,
-  signInWithGooglePopup,
-  signInWithGoogleRedirect,
 } from "../../utils/firebase/firebase.utils";
 import { getRedirectResult } from "firebase/auth";
 import styles from "./login.module.css";
@@ -21,17 +19,12 @@ export default function Login() {
       const response = await getRedirectResult(auth);
 
       if (response) {
-        const userDocRef = await createUserDocumentFromAuth(response.user);
+        await createUserDocumentFromAuth(response.user);
       }
     }
     getResult();
   }, []);
-
-  const logGoogleUser = async () => {
-    const { user } = await signInWithGooglePopup();
-    const userDocRef = await createUserDocumentFromAuth(user);
-  };
-
+  
   return (
     <div className={styles.section}>
       <div className={styles.content}>
