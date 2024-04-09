@@ -1,0 +1,21 @@
+.large {
+	font-size: 1.8rem;
+	line-height: 3.2rem;
+}
+
+.regular {
+	font-size: 1.4rem;
+	line-height: 2.4rem;
+}
+
+.small {
+	font-size: 1rem;
+	line-height: 1.6rem;
+}
+
+.p button {
+	text-decoration: underline;
+}
+.p button:hover {
+	text-decoration: none;
+}

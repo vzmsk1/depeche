@@ -1,4 +1,4 @@
-import Header from "./Header/header.component";
+import Header from "./header/header.component";
 import type { LayoutProps } from "./layout.props";
 import styles from "./layout.module.css";
 

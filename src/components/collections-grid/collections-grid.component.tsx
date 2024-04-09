@@ -1,4 +1,4 @@
-import Collection from "../Collection/collection.component";
+import Collection from "../collection/collection.component";
 import styles from "./collections-grid.module.css";
 import type { CollectionsGridProps } from "./collections-grid.props";
 

@@ -1,4 +1,4 @@
-import CollectionsGrid from "../../components/CollectionsGrid/collections-grid.component";
+import CollectionsGrid from "../../components/collections-grid/collections-grid.component";
 
 export default function Home() {
   const collections = [

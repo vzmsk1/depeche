@@ -1,0 +1,31 @@
+.input {
+	position: relative;
+}
+.input input {
+	position: relative;
+	z-index: 2;
+	
+	padding: 1.4rem 1.2rem 1rem 1.2rem;
+	
+	width: 100%;
+	border: 1px solid var(--grey);
+	
+	font-size: 1.6rem;
+}
+.label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	
+	padding: 1.4rem 2rem;
+	
+	font-size: 1.6rem;
+	color: #6d7278;
+	
+	transform-origin: left;
+	transition: transform 0.3s ease;
+}
+.input input:focus + .label,
+.input .label.isFilled {
+	transform: translateY(-1.5rem) scale(0.7);
+}

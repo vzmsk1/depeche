@@ -1,4 +1,4 @@
-import type { CollectionProps } from "../Collection/collection.props";
+import type { CollectionProps } from "../collection/collection.props";
 
 export interface CollectionsGridProps {
   collections: CollectionProps[];

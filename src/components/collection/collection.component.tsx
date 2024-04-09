@@ -1,4 +1,4 @@
-import Heading from "../Heading/heading.component";
+import Heading from "../heading/heading.component";
 import styles from "./collection.module.css";
 import type { CollectionProps } from "./collection.props";
 

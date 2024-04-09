@@ -8,3 +8,9 @@ declare module "*.svg" {
   const src: string;
   export default src;
 }
+declare interface Error {
+  name: string
+  message: string
+  stack?: string
+  code?: number | string
+}
