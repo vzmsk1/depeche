@@ -15,9 +15,8 @@ const defaultFormFields: FormFields = {
 }
 
 
-  const singnInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocumentFromAuth(user);
+  const signInWithGoogle = async () => {
+    await signInWithGooglePopup();
   };
 
 export default function SignInForm() {
@@ -32,7 +31,8 @@ export default function SignInForm() {
     e.preventDefault()
     
     try {
-      const response = await signInAuthUserWithEmailAndPassword(email, password);
+      const { user } = await signInAuthUserWithEmailAndPassword(email, password);
+      
       resetFormFields()
     } catch (error) {
       if (error instanceof Error) {
@@ -72,7 +72,7 @@ export default function SignInForm() {
         </div>
         <div className={styles.footer}>
           <Button type='submit'>sign in</Button>
-          <Button type='button' buttonType='secondary' onClick={singnInWithGoogle}>or sign in with google</Button>
+          <Button type='button' buttonType='secondary' onClick={signInWithGoogle}>or sign in with google</Button>
         </div>
       </form>
     </div>
