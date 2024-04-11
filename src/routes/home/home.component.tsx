@@ -1,6 +1,7 @@
 import CollectionsGrid from "../../components/collections-grid/collections-grid.component";
 
 export default function Home() {
+  
   const collections = [
     {
       id: 1,
@@ -8,7 +9,7 @@ export default function Home() {
       message: "create high-performance looks—from classic to graphic",
       imageDescription: "eye products",
       imageSrc:
-        "https://i.ibb.co/gRSyyp3/70454e6ad8697da79294778929003c3d3fb-1.webp",
+        "https://i.ibb.co/5RSRYDL/97f3b620265d5fdfce0d907f925e048c.webp",
     },
     {
       id: 2,
@@ -17,7 +18,7 @@ export default function Home() {
         "swipe on sheer color, a tantalizing scent & mega glossy shine in no time",
       imageDescription: "lip products",
       imageSrc:
-        "https://i.ibb.co/v4nFH1r/94791070d793c5c268f7d97f4d5d6492.webp",
+        "https://i.ibb.co/hmhc8Sw/7a2fd81cfd7e75a316404619a5d431fd.webp",
     },
     {
       id: 3,

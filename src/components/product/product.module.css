@@ -1,0 +1,62 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	
+	user-select: none;
+}
+
+.image {
+	position: relative;
+	
+	margin-bottom: 2rem;
+	
+	height: 41.3rem;
+	
+	overflow: hidden;
+}
+.image img {
+	height: 100%;
+	
+	object-fit: cover;
+	
+	transition: transform 1s ease;
+}
+.image:hover img {
+	transform: scale(1.04);
+}
+.image:hover .button {
+	opacity: 1;
+	visibility: visible;
+}
+
+.button {
+	position: absolute;
+	bottom: 2rem;
+	left: 50%;
+	
+	width: 90%;
+	
+	opacity: 0;
+	visibility: hidden;
+	transform: translateX(-50%);
+	
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.button button {
+	width: 100%;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+}
+
+.heading {
+	margin-bottom: 1rem;
+}
+
+.price {
+	font-size: 1.4rem;
+	
+	font-weight: 700;
+}

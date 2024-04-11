@@ -1,0 +1,84 @@
+.section {
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	right: 0;
+	
+	display: flex;
+	justify-content: flex-end;
+	
+	width: 100%;
+	height: 100%;
+	
+	background-color: rgba(0, 0, 0, .6);
+	
+	opacity: 0;
+	visibility: hidden;
+	
+	transition: opacity 1s ease 0.5s, visibility 1s ease 0.5s;
+}
+.section.isActive {
+	opacity: 1;
+	visibility: visible;
+	
+	transition: opacity 1s ease, visibility 1s ease;
+}
+.section.isActive .inner {
+	transform: translateX(0);
+	
+	transition: transform 1s ease 0.5s;
+}
+
+.inner {
+	position: relative;
+	
+	height: 100%;
+	
+	background-color: var(--white);
+	
+	transform: translateX(110%);
+	
+	transition: transform 1s ease;
+	
+}
+
+.close {
+	position: absolute;
+	top: 3rem;
+	left: 3rem;
+}
+.close svg {
+	width: 4rem;
+	height: 4rem;
+}
+
+.content {
+	padding: 3rem;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	row-gap: 3rem;
+	
+	height: 100%;
+	
+	text-align: center;
+}
+
+.heading {
+	    max-width: 48rem;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	row-gap: 2rem;
+}
+
+.cartIcon {
+	flex: 0 0 4rem;
+	
+	width: 4rem;
+	height: 4rem;
+}

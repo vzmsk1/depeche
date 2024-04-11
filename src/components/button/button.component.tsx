@@ -5,6 +5,7 @@ import cn from "classnames";
 export default function Button ({children, buttonType, ...props}: ButtonProps) {
 	return <button className={cn(styles.btn, {
 	   [styles.secondary]: buttonType === 'secondary',
+	   [styles.ghost]: buttonType === 'ghost',
     })} {...props}>
 		{children}
 	</button>

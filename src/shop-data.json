@@ -1,0 +1,62 @@
+[
+	{
+		"id": 1,
+		"name": "skin paradise soft velvet finishing powder",
+		"imageUrl": "https://pcdn.goldapple.ru/p/p/19000089587/web/696d674d61696e8dc3c19952d4001fullhd.webp",
+		"price": 2088
+	},
+	{
+		"id": 2,
+		"name": "conceal pot",
+		"imageUrl": "https://pcdn.goldapple.ru/p/p/19000163555/web/696d674d61696e8dc41e6f8decd4bfullhd.webp",
+		"price": 755
+	},
+	{
+		"id": 3,
+		"name": "base foundation",
+		"imageUrl": "https://pcdn.goldapple.ru/p/p/19000203466/web/696d674d61696e8dbcfafe307ff0afullhd.webp",
+		"price": 7930
+	},
+	{
+		"id": 4,
+		"name": "aloe sun protect bb cream",
+		"imageUrl": "https://pcdn.goldapple.ru/p/p/19000097371/web/696d674d61696e8dba487b3c6c3e8fullhd.webp",
+		"price": 355
+	},
+	{
+		"id": 5,
+		"name": "crimson blush",
+		"imageUrl": "https://pcdn.goldapple.ru/p/p/19000277619/web/696d674d61696e8dc442d267a9fd4fullhd.webp",
+		"price": 1025
+	},
+	{
+		"id": 6,
+		"name": "moist infusion",
+		"imageUrl": "https://pcdn.goldapple.ru/p/p/19000137645/web/696d674d61696e8dc3de14031c7e7fullhd.webp",
+		"price": 1950
+	},
+	{
+		"id": 7,
+		"name": "long-wear cushion foundation radiant",
+		"imageUrl": "https://pcdn.goldapple.ru/p/p/19000212411/web/696d674d61696e8dbbff7907b6418fullhd.webp",
+		"price": 5283
+	},
+	{
+		"id": 8,
+		"name": "essence glow foundation",
+		"imageUrl": "https://pcdn.goldapple.ru/p/p/19000163504/web/696d674d61696e8dc50863c19153efullhd.webp",
+		"price": 1610
+	},
+	{
+		"id": 9,
+		"name": "contour kit",
+		"imageUrl": "https://pcdn.goldapple.ru/p/p/19000164703/web/696d674d61696e8dbe0ed2fa0a87afullhd.webp",
+		"price": 3372
+	},
+	{
+		"id": 10,
+		"name": "the setting compact powder",
+		"imageUrl": "https://pcdn.goldapple.ru/p/p/19000009068/web/696d674d61696e8dc4c153f150a70fullhd.webp",
+		"price": 1218
+	}
+]

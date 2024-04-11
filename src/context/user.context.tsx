@@ -1,7 +1,7 @@
 import { type User } from 'firebase/auth'
 import { createContext, type SetStateAction, useEffect } from 'react'
 import { useState } from 'react'
-import { createUserDocumentFromAuth, onAuthStateChangedListener, signOutUser } from '../utils/firebase/firebase.utils'
+import { createUserDocumentFromAuth, onAuthStateChangedListener } from '../utils/firebase/firebase.utils'
 
 export interface UserContextType {
 	currentUser: User | null,

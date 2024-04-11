@@ -1,14 +1,14 @@
-import { useContext } from 'react'
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from '../../context/user.context'
-import { signOutUser } from '../../utils/firebase/firebase.utils'
+import Cart from "../../components/cart/cart.component";
+import { UserContext } from "../../context/user.context";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { HeaderProps } from "./header.props";
 import styles from "./header.module.css";
-import { ReactComponent as CartIcon } from "./cart-icon.svg";
 
 export default function Header({ ...props }: HeaderProps) {
-  const { currentUser } = useContext(UserContext)
-  
+  const { currentUser } = useContext(UserContext);
+
   return (
     <div {...props} className={styles.header}>
       <Link to="/" className={styles.logo}>
@@ -25,13 +25,13 @@ export default function Header({ ...props }: HeaderProps) {
           <span onClick={signOutUser} className={styles.navLink}>
             sign out
           </span>
-        ) : (<Link to="/login" className={styles.navLink}>
+        ) : (
+          <Link to="/login" className={styles.navLink}>
             login
-          </Link>)}
-        <Link to="/cart" className={styles.icon}>
-          <CartIcon />
-        </Link>
+          </Link>
+        )}
       </nav>
+      <Cart />
     </div>
   );
 }
