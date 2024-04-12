@@ -1,0 +1,47 @@
+.card {
+	display: flex;
+	column-gap: 2rem;
+}
+
+.image {
+	flex: 0 0 10.4rem;
+	
+	width: 10.4rem;
+	height: 13.1rem;
+}
+.image img {
+	height: 100%;
+	
+	object-fit: cover;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+}
+
+.heading {
+	margin-bottom: 1rem;
+	
+	display: flex;
+	align-items: center;
+	column-gap: 0.5rem;
+}
+
+.price {
+	margin-bottom: auto;
+	
+	font-size: 1.2rem;
+	font-weight: 700;
+	line-height: 1.6rem;
+}
+
+.removeBtn {
+	align-self: flex-start;
+	
+	color: #666666;
+	text-decoration-line: underline;
+}
+.removeBtn:hover {
+	text-decoration: none;
+}
