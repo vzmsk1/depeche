@@ -101,12 +101,15 @@
 }
 
 .items {
-	margin-bottom: auto;
+	margin-bottom: 3rem;
 	
 	display: flex;
 	flex-direction: column;
 	row-gap: 3rem;
 	
+	height: 100%;
+	
+	overflow: auto;
 }
 
 .footer {

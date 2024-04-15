@@ -5,11 +5,11 @@ import type { ProductProps } from "../product/product.props";
 import styles from "./cart-item.module.css";
 
 export default function CartItem(item: ProductProps) {
-  const { cartItems, setCartItems } = useContext(CartContext);
+  const { clearItemFromCart } = useContext(CartContext);
   const { imageUrl, name, price, quantity } = item;
 
-  function removeItemFromCart() {
-    setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
+  function clearItemFromCartHandler() {
+    clearItemFromCart(item);
   }
 
   return (
@@ -24,7 +24,7 @@ export default function CartItem(item: ProductProps) {
         </div>
         <span className={styles.price}>${price}</span>
         <button
-          onClick={removeItemFromCart}
+          onClick={clearItemFromCartHandler}
           className={styles.removeBtn}
           type="button"
         >

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/cart.context";
 import Button from "../button/button.component";
 import CartItem from "../cart-item/cart-item.component";
@@ -12,14 +12,24 @@ import { ReactComponent as CartIcon } from "./cart-icon.svg";
 export default function Cart() {
   const { totalPrice, cartCount, cartItems, isCartOpen, setIsCartOpen } =
     useContext(CartContext);
+  const navigate = useNavigate();
+
+  function goToCheckoutHandler() {
+    navigate("/checkout");
+    closeCart();
+  }
 
   function clickHandler(e: React.MouseEvent) {
     const target = e.target as Element;
 
     if (!target.closest("#header-cart") || target.closest("#close-cart-btn")) {
-      setIsCartOpen(false);
-      document.documentElement.style.overflow = "auto";
+      closeCart();
     }
+  }
+
+  function closeCart() {
+    setIsCartOpen(false);
+    document.documentElement.style.overflow = "auto";
   }
 
   function openCart() {
@@ -91,7 +101,7 @@ export default function Cart() {
                       *shipping fees & taxes will be calculated during checkout
                     </p>
                   </div>
-                  <Button>secure checkout</Button>
+                  <Button onClick={goToCheckoutHandler}>secure checkout</Button>
                 </div>
               </div>
             )}

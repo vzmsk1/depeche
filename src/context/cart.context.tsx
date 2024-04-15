@@ -18,6 +18,30 @@ function addCartItem(
   return [...cartItems, { ...product, quantity: 1 }];
 }
 
+function removeCartItem(
+  cartItems: ProductProps[],
+  product: ProductProps,
+): ProductProps[] {
+  const existingCartItem = cartItems.find((item) => item.id === product.id);
+
+  if (existingCartItem) {
+    if (existingCartItem.quantity !== 1) {
+      return cartItems.map((item) =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity ? item.quantity - 1 : null }
+          : item,
+      );
+    }
+    return cartItems.filter((cartItem) => cartItem.id !== product.id);
+  }
+
+  return cartItems;
+}
+
+function clearCartItem(cartItems: ProductProps[], product: ProductProps) {
+  return cartItems.filter((cartItem) => cartItem.id !== product.id);
+}
+
 interface CartContextType {
   isCartOpen: boolean;
   setIsCartOpen: React.Dispatch<SetStateAction<boolean>>;
@@ -26,6 +50,8 @@ interface CartContextType {
   setCartItems: React.Dispatch<SetStateAction<ProductProps[]>>;
   cartCount: number;
   totalPrice: number;
+  removeItemFromCart: (product: ProductProps) => void;
+  clearItemFromCart: (product: ProductProps) => void;
 }
 
 export const CartContext = createContext<CartContextType>({
@@ -36,6 +62,8 @@ export const CartContext = createContext<CartContextType>({
   setCartItems: () => {},
   cartCount: 0,
   totalPrice: 0,
+  removeItemFromCart: () => {},
+  clearItemFromCart: () => {},
 });
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
@@ -46,7 +74,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const newTotalPrice = cartItems.reduce(
-      (partialSum, a) => partialSum + a.price,
+      (partialSum, a) => partialSum + (a.quantity ? a.quantity : 1) * a.price,
       0,
     );
 
@@ -65,6 +93,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setCartItems(addCartItem(cartItems, product));
   }
 
+  function removeItemFromCart(product: ProductProps) {
+    setCartItems(removeCartItem(cartItems, product));
+  }
+
+  function clearItemFromCart(product: ProductProps) {
+    setCartItems(clearCartItem(cartItems, product));
+  }
+
   const value = {
     isCartOpen,
     setIsCartOpen,
@@ -73,6 +109,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setCartItems,
     cartCount,
     totalPrice,
+    removeItemFromCart,
+    clearItemFromCart,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

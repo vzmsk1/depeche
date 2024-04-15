@@ -1,0 +1,70 @@
+.card {
+	display: flex;
+}
+
+.quantity {
+	display: flex;
+	align-self: center;
+	
+	height: 4rem;
+	border: 1px solid #e4e3e2;
+}
+
+.quantityAction {
+	width: 3rem;
+	height: 100%;
+}
+.quantityAction span {
+	margin: 0 auto;
+	
+    display: block;
+	
+    text-align: center;
+}
+
+.quantityField {
+	    margin: auto 1rem;
+	
+    display: block;
+}
+
+.heading {
+	max-width: 25rem;
+	
+	font-size: 1.4rem;
+	
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.image {
+	margin-right: 1.5rem;
+	
+	flex: 0 0 7rem;
+	
+	width: 7rem;
+	height: 7rem;
+	border-radius: 0.5rem;
+	
+	overflow: hidden;
+}
+.image img {
+	height: 100%;
+	
+	object-fit: cover;
+}
+
+.content {
+	margin-right: auto;
+	
+	display: flex;
+	flex-direction: column;
+	row-gap: 1rem;
+}
+
+.price {
+	font-size: 1.4rem;
+	
+	color: #707070;
+}
