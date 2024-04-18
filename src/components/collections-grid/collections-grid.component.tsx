@@ -26,7 +26,7 @@ const collections = [
       "meet the long-wear foundations that’s actually high-performance skincare",
     imageDescription: "face products",
     imageSrc: "https://i.ibb.co/sswY6wQ/f5819864b58c3a01cd9c445ac1c34d68.webp",
-    route: "shop/face",
+    route: "shop/skin",
   },
   {
     id: 4,
