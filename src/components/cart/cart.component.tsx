@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/cart.context";
 import Button from "../button/button.component";
 import CartItem from "../cart-item/cart-item.component";
@@ -13,10 +13,14 @@ export default function Cart() {
   const { totalPrice, cartCount, cartItems, isCartOpen, setIsCartOpen } =
     useContext(CartContext);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    closeCart();
+  }, [location]);
 
   function goToCheckoutHandler() {
     navigate("/checkout");
-    closeCart();
   }
 
   function clickHandler(e: React.MouseEvent) {
@@ -73,13 +77,13 @@ export default function Cart() {
                   </Heading>
                 </div>
                 <div className={styles.buttons}>
-                  <Link to="/shop/eye-makeup">
+                  <Link to="/shop/eyes">
                     <Button buttonType="ghost">eyes</Button>
                   </Link>
-                  <Link to="/shop/lip-makeup">
+                  <Link to="/shop/lips">
                     <Button buttonType="ghost">lips</Button>
                   </Link>
-                  <Link to="/shop/face-makeup">
+                  <Link to="/shop/skin">
                     <Button buttonType="ghost">face</Button>
                   </Link>
                 </div>
