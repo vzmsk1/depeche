@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/cart.context";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../../store/cart/cart.slice";
 import Button from "../button/button.component";
 import Heading from "../heading/heading.component";
 import styles from "./product.module.css";
@@ -8,10 +8,10 @@ import type { ProductProps } from "./product.props";
 export default function ProductCard(product: ProductProps) {
   const { name, imageUrl, price } = product;
 
-  const { addItemToCart } = useContext(CartContext);
+  const dispatch = useDispatch();
 
   function addProductToCart() {
-    addItemToCart(product);
+    dispatch(addItemToCart(product));
   }
 
   return (

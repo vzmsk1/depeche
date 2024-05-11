@@ -1,6 +1,6 @@
-import type { CollectionPropsRoot } from "./interfaces/collection.props";
+import type { CollectionsProps } from "./store/collections/collection.props";
 
-const SHOP_DATA: CollectionPropsRoot = [
+const SHOP_DATA: CollectionsProps[] = [
   {
     title: "skin",
     items: [

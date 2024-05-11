@@ -1,6 +1,12 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { CartContext } from "../../context/cart.context";
+import { setIsCartOpen } from "../../store/cart/cart.slice";
+import {
+  selectCartCount,
+  selectCartItems,
+  selectIsCartOpen,
+} from "../../store/cart/cart.selector";
 import Button from "../button/button.component";
 import CartItem from "../cart-item/cart-item.component";
 import Heading from "../heading/heading.component";
@@ -10,8 +16,12 @@ import { ReactComponent as CloseIcon } from "./close-icon.svg";
 import { ReactComponent as CartIcon } from "./cart-icon.svg";
 
 export default function Cart() {
-  const { totalPrice, cartCount, cartItems, isCartOpen, setIsCartOpen } =
-    useContext(CartContext);
+  const dispatch = useDispatch();
+
+  const isCartOpen = useSelector(selectIsCartOpen);
+  const cartCount = useSelector(selectCartCount);
+  const cartItems = useSelector(selectCartItems);
+
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -32,23 +42,18 @@ export default function Cart() {
   }
 
   function closeCart() {
-    setIsCartOpen(false);
     document.documentElement.style.overflow = "auto";
+    dispatch(setIsCartOpen(false));
   }
 
   function openCart() {
-    setIsCartOpen(true);
     document.documentElement.style.overflow = "hidden";
+    dispatch(setIsCartOpen(true));
   }
 
   return (
     <>
-      <button
-        onClick={openCart}
-        id="open-cart-btn"
-        type="button"
-        className={styles.cartIcon}
-      >
+      <button onClick={openCart} type="button" className={styles.cartIcon}>
         <CartIcon />
         <span
           className={cn(styles.quantity, {
@@ -99,7 +104,7 @@ export default function Cart() {
                   <div className={styles.subtotals}>
                     <div className={styles.total}>
                       <Heading tag="h3">estimated total*</Heading>
-                      <span className={styles.price}>${totalPrice}</span>
+                      <span className={styles.price}>${cartCount}</span>
                     </div>
                     <p className={styles.disclaimer}>
                       *shipping fees & taxes will be calculated during checkout

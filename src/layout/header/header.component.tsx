@@ -1,13 +1,20 @@
-import { useContext, useState } from "react";
+import type { Dispatch } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import type { Action } from "redux";
 import Cart from "../../components/cart/cart.component";
-import { UserContext } from "../../context/user.context";
-import { signOutUser } from "../../utils/firebase/firebase.utils";
+import { selectCurrentUser } from "../../store/user/user.selector";
+import { signOutStart } from "../../store/user/user.slice";
 import { HeaderProps } from "./header.props";
 import styles from "./header.module.css";
 
 export default function Header({ ...props }: HeaderProps) {
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector(selectCurrentUser);
+  const dispatch: Dispatch<Action<"user/signOutStart">> = useDispatch();
+
+  function signOutUser() {
+    dispatch(signOutStart());
+  }
 
   return (
     <div {...props} className={styles.header}>
@@ -22,7 +29,7 @@ export default function Header({ ...props }: HeaderProps) {
           contacts
         </Link>
         {currentUser ? (
-          <span onClick={signOutUser} className={styles.navLink}>
+          <span className={styles.navLink} onClick={signOutUser}>
             sign out
           </span>
         ) : (

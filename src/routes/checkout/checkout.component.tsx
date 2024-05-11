@@ -1,12 +1,16 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import Heading from "../../components/heading/heading.component";
 import type { ProductProps } from "../../components/product/product.props";
-import { CartContext } from "../../context/cart.context";
+import {
+  selectCartItems,
+  selectCartTotal,
+} from "../../store/cart/cart.selector";
 import styles from "./checkout.module.css";
 
 export default function Checkout() {
-  const { cartItems, totalPrice } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
 
   return (
     <div className={styles.section}>
@@ -19,7 +23,7 @@ export default function Checkout() {
         <div className={styles.total}>
           <Heading tag="h3">total</Heading>
           <div className={styles.price}>
-            USD <span>${totalPrice}</span>
+            USD <span>${cartTotal}</span>
           </div>
         </div>
       </aside>

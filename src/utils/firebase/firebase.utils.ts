@@ -21,10 +21,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { User } from "firebase/auth";
-import type {
-  CollectionProps,
-  CollectionPropsRoot,
-} from "../../interfaces/collection.props";
+import type { CollectionsProps } from "../../store/collections/collection.props";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDlX34ZICPSiH79motxjl6HtwM_gsyCmtU",
@@ -74,7 +71,7 @@ export async function createUserDocumentFromAuth(
     }
   }
 
-  return userDocRef;
+  return userSnapshot;
 }
 
 export async function createAuthUserWithEmailAndPassword(
@@ -101,7 +98,7 @@ export function onAuthStateChangedListener(callback: NextOrObserver<User>) {
 
 export async function addCollectionAndDocuments(
   collectionKey: string,
-  objectsToAdd: CollectionProps[],
+  objectsToAdd: CollectionsProps[],
 ) {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
@@ -115,19 +112,23 @@ export async function addCollectionAndDocuments(
   await batch.commit();
 }
 
-export async function getCategoriesAndDocuments() {
+export async function getCollectionsAndDocuments() {
   const collectionRef = collection(db, "collections");
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const { title, items } = docSnapshot.data() as CollectionProps;
-    const a = acc as { [title: string]: any };
+  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+}
 
-    a[title.toLowerCase()] = items;
-
-    return a;
-  }, {});
-
-  return categoryMap;
+export function getCurrentUser() {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe();
+        resolve(userAuth);
+      },
+      reject,
+    );
+  });
 }

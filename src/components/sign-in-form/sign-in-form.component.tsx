@@ -1,78 +1,106 @@
-import { useState } from 'react'
+import { type Dispatch, useState } from "react";
+import { useDispatch } from "react-redux";
+import type { Action } from "redux";
 import {
-  createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword,
-  signInWithGooglePopup
-} from '../../utils/firebase/firebase.utils'
-import Button from '../button/button.component'
-import Heading from '../heading/heading.component'
-import Input from '../input/input.component'
-import type { FormFields } from './sign-in-form.props'
+  emailSignInStart,
+  googleSignInStart,
+} from "../../store/user/user.slice";
+import Button from "../button/button.component";
+import Heading from "../heading/heading.component";
+import Input from "../input/input.component";
+import type { FormFields } from "./sign-in-form.props";
 import styles from "./sign-in-form.module.css";
 
 const defaultFormFields: FormFields = {
-  email: '',
-  password: '',
-}
-
-
-  const signInWithGoogle = async () => {
-    await signInWithGooglePopup();
-  };
+  email: "",
+  password: "",
+};
 
 export default function SignInForm() {
-  const [formFields, setFormFields] = useState(defaultFormFields)
-  const { email, password} = formFields
-  
-  function resetFormFields() {
-    setFormFields(defaultFormFields)
+  const dispatchGoogleSignIn: Dispatch<Action<"user/googleSignInStart">> =
+    useDispatch();
+  const dispatchEmailSignIn: Dispatch<Action<"user/emailSignInStart">> =
+    useDispatch();
+
+  const [formFields, setFormFields] = useState(defaultFormFields);
+  const { email, password } = formFields;
+
+  async function signInWithGoogle() {
+    dispatchGoogleSignIn(googleSignInStart());
   }
-  
+
+  function resetFormFields() {
+    setFormFields(defaultFormFields);
+  }
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    
+    e.preventDefault();
+
     try {
-      const { user } = await signInAuthUserWithEmailAndPassword(email, password);
-      
-      resetFormFields()
+      dispatchEmailSignIn(emailSignInStart({ email, password }));
+
+      resetFormFields();
     } catch (error) {
       if (error instanceof Error) {
         switch (error.code) {
-          case 'auth/wrong-password':
-            alert('incorrect password for email')
-            break
-          case 'auth/user-not-found':
-            alert('no user associated with this email')
-            break
-          case 'auth/invalid-email':
-            alert('invalid email')
-            break
-          case 'auth/invalid-credential':
-            alert('email / password is incorrect')
-            break
-          default: console.log(error)
+          case "auth/wrong-password":
+            alert("incorrect password for email");
+            break;
+          case "auth/user-not-found":
+            alert("no user associated with this email");
+            break;
+          case "auth/invalid-email":
+            alert("invalid email");
+            break;
+          case "auth/invalid-credential":
+            alert("email / password is incorrect");
+            break;
+          default:
+            console.log(error);
         }
       }
     }
-    
   }
-  
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const {name, value} = e.target
-    
-    setFormFields({...formFields, [name]: value})
+    const { name, value } = e.target;
+
+    setFormFields({ ...formFields, [name]: value });
   }
-  
+
   return (
     <div className={styles.section}>
-      <Heading tag='h3'>sign in</Heading>
+      <Heading tag="h3">sign in</Heading>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.fields}>
-          <Input label="email" options={{value: email, name: 'email', onChange: handleChange, required: true }} />
-          <Input label="password" options={{value: password, name: 'password', onChange: handleChange, required: true }} />
+          <Input
+            label="email"
+            options={{
+              value: email,
+              name: "email",
+              onChange: handleChange,
+              required: true,
+            }}
+          />
+          <Input
+            label="password"
+            options={{
+              value: password,
+              name: "password",
+              onChange: handleChange,
+              required: true,
+            }}
+          />
         </div>
         <div className={styles.footer}>
-          <Button type='submit'>sign in</Button>
-          <Button type='button' buttonType='secondary' onClick={signInWithGoogle}>or sign in with google</Button>
+          <Button type="submit">sign in</Button>
+          <Button
+            type="button"
+            buttonType="secondary"
+            onClick={signInWithGoogle}
+          >
+            or sign in with google
+          </Button>
         </div>
       </form>
     </div>
