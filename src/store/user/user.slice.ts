@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import firebase from "firebase/compat";
 
 const USER_INITIAL_STATE = {
   currentUser: null,

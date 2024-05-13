@@ -1,0 +1,12 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	height: 100%;
+}
+
+.form .StripeElement {
+	margin-bottom: auto;
+	
+	width: 66rem;
+}

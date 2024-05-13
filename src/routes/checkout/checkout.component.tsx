@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 import Heading from "../../components/heading/heading.component";
+import PaymentForm from "../../components/payment-form/payment-form.component";
 import type { ProductProps } from "../../components/product/product.props";
 import {
   selectCartItems,
@@ -27,6 +28,9 @@ export default function Checkout() {
           </div>
         </div>
       </aside>
+      <div className={styles.body}>
+        <PaymentForm />
+      </div>
     </div>
   );
 }

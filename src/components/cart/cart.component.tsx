@@ -5,6 +5,7 @@ import { setIsCartOpen } from "../../store/cart/cart.slice";
 import {
   selectCartCount,
   selectCartItems,
+  selectCartTotal,
   selectIsCartOpen,
 } from "../../store/cart/cart.selector";
 import Button from "../button/button.component";
@@ -20,6 +21,7 @@ export default function Cart() {
 
   const isCartOpen = useSelector(selectIsCartOpen);
   const cartCount = useSelector(selectCartCount);
+  const cartTotal = useSelector(selectCartTotal);
   const cartItems = useSelector(selectCartItems);
 
   const navigate = useNavigate();
@@ -104,7 +106,7 @@ export default function Cart() {
                   <div className={styles.subtotals}>
                     <div className={styles.total}>
                       <Heading tag="h3">estimated total*</Heading>
-                      <span className={styles.price}>${cartCount}</span>
+                      <span className={styles.price}>${cartTotal}</span>
                     </div>
                     <p className={styles.disclaimer}>
                       *shipping fees & taxes will be calculated during checkout
