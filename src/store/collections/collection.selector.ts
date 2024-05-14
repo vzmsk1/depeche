@@ -4,6 +4,11 @@ import type { CollectionsProps } from "./collection.props";
 
 const selectCollectionReducer = (state: RootState) => state.collections;
 
+export const selectCollectionsIsLoading = createSelector(
+  [selectCollectionReducer],
+  (collectionsSlice) => collectionsSlice.isLoading,
+);
+
 export const selectCollections = createSelector(
   [selectCollectionReducer],
   (collectionsSlice) => collectionsSlice.collections,

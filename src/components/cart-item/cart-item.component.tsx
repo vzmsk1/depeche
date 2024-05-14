@@ -1,10 +1,11 @@
+import { memo } from "react";
 import { useDispatch } from "react-redux";
 import { clearItemFromCart } from "../../store/cart/cart.slice";
 import Heading from "../heading/heading.component";
 import type { ProductProps } from "../product/product.props";
 import styles from "./cart-item.module.css";
 
-export default function CartItem(item: ProductProps) {
+export default memo(function CartItem(item: ProductProps) {
   const { imageUrl, name, price, quantity } = item;
 
   const dispatch = useDispatch();
@@ -34,4 +35,4 @@ export default function CartItem(item: ProductProps) {
       </div>
     </div>
   );
-}
+});

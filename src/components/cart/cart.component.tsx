@@ -18,14 +18,13 @@ import { ReactComponent as CartIcon } from "./cart-icon.svg";
 
 export default function Cart() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const isCartOpen = useSelector(selectIsCartOpen);
   const cartCount = useSelector(selectCartCount);
   const cartTotal = useSelector(selectCartTotal);
   const cartItems = useSelector(selectCartItems);
-
-  const navigate = useNavigate();
-  const location = useLocation();
 
   useEffect(() => {
     closeCart();
