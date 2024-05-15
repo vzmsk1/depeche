@@ -157,3 +157,28 @@
 	font-size: 1.4rem;
 	color: #555555;
 }
+
+@media (max-width: 48em) {
+	.cartIcon {
+		justify-self: end;
+		flex: 0 0 6rem;
+		width: 6rem;
+		height: 6rem;
+	}
+	.close {
+		width: 5rem;
+    height: 5rem;
+	}
+	.inner {
+		width: 55.8rem;
+	}
+	.quantity {
+		font-size: 2rem;
+	}
+	.price {
+		font-size: 3rem;
+	}
+	.disclaimer {
+		font-size: 2.4rem;
+	}
+}

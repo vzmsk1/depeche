@@ -68,3 +68,25 @@
 	
 	color: #707070;
 }
+
+@media (max-width: 48em) {
+	.image {
+		margin-right: 3rem;
+		
+		flex: 0 0 12rem;
+    width: 12rem;
+    height: 14rem;
+	}
+	.heading {
+		font-size: 3rem;
+	}
+	.price {
+		font-size: 2.4rem;
+	}
+	.quantity {
+		height: 7rem;
+	}
+	.quantityAction {
+		width: 6rem;
+	}
+}

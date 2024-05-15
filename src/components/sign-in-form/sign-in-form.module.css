@@ -18,3 +18,11 @@
 	display: flex;
 	column-gap: 2rem;
 }
+
+@media (max-width: 48em) {
+	
+	.fields {
+		row-gap: 3rem;
+		width: 100%;
+	}
+}

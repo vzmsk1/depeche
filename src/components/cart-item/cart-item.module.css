@@ -45,3 +45,17 @@
 .removeBtn:hover {
 	text-decoration: none;
 }
+
+@media (max-width: 48em) {
+	.image {
+		flex: 0 0 15rem;
+    width: 15rem;
+    height: 18rem;
+	}
+	.price {
+		font-size: 2rem;
+	}
+	.buttons {
+		width: 41rem;
+	}
+}

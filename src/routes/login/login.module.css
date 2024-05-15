@@ -33,3 +33,18 @@
 	flex-direction: column;
 	row-gap: 2rem;
 }
+
+
+@media (max-width: 48em) {
+	.content {
+		margin: 0;
+	}
+	.background {
+		left: -3rem;
+	}
+	.input input {
+		padding: 2rem 1.2rem 1rem 1.2rem;
+		
+		font-size: 2.4rem;
+	}
+}

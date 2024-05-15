@@ -46,3 +46,14 @@
 .btn.ghost:hover {
 	border: 1px solid #333333;
 }
+
+@media (max-width: 48em) {
+	.btn {
+		padding: 2.5rem 0;
+		
+		min-width: auto;
+		width: 100%;
+		
+		font-size: 3rem;
+	}
+}

@@ -9,3 +9,15 @@
 .h3 {
 	font-size: 2rem;
 }
+
+@media (max-width: 48em) {
+	.h1 {
+		font-size: 6rem;
+	}
+	.h2 {
+		font-size: 4.5rem;
+	}
+	.h3 {
+		font-size: 3rem;
+	}
+}

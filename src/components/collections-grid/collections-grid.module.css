@@ -1,5 +1,11 @@
 .grid {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
 	gap: 4rem;
+	width: 100%;
+}
+
+@media (min-width: 48em) {
+	.grid {
+		grid-template-columns: repeat(4, 1fr);
+	}
 }

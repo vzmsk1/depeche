@@ -29,3 +29,21 @@
 .input .label.isFilled {
 	transform: translateY(-1.5rem) scale(0.7);
 }
+
+@media (max-width: 48em) {
+	.input input {
+		padding: 3rem;
+		
+		font-size: 2.4rem;
+	}
+	.label {
+			padding: 3rem;
+		
+			font-size: 2.4rem;
+	}
+	.input input:focus + .label,
+	.input .label.isFilled {
+	transform: translateY(-2.5rem) scale(0.9);
+	
+	}
+}

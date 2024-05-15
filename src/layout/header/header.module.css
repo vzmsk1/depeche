@@ -15,7 +15,9 @@
 
 .nav {
 	margin-right: 2.5rem;
-	
+}
+
+.inner {
 	display: flex;
 	justify-self: end;
 	align-items: center;
@@ -33,4 +35,79 @@
 
 .heading {
 	font-size: 5rem;
+}
+
+@media (max-width: 48em) {
+	.nav {
+		position: fixed;
+		z-index: 100;
+		top: 0;
+		left: 0;
+		
+		width: 100%;
+		height: 100%;
+		
+		background-color: rgba(0, 0, 0, .6);
+		
+		opacity: 0;
+		visibility: hidden;
+		
+		transition: opacity 1s ease 0.5s, visibility 1s ease 0.5s;
+	}
+	.nav.isActive {
+		opacity: 1;
+		visibility: visible;
+	
+		transition: opacity 1s ease, visibility 1s ease;
+	}
+	.nav.isActive .inner {
+		transform: translateX(0);
+	
+		transition: transform 1s ease 0.5s;
+	}
+	.nav.isActive .close {
+		opacity: 1;
+		transition: opacity 0.3s ease 1.5s;
+	}
+	.inner {
+		position: relative;
+		
+		padding: 3rem;
+	
+		flex-direction: column;
+		justify-content: center;
+    row-gap: 4rem;
+		height: 100%;
+		width: 49.8rem;
+		
+		background-color: var(--white);
+		
+		transform: translateX(-110%);
+		
+		transition: transform 1s ease;
+	}
+	.heading {
+		font-size: 6rem;
+	}
+	.navLink {
+		font-size: 3.2rem;
+	}
+	.close {
+		position: absolute;
+		z-index: 2;
+		top: 3rem;
+		left: 43rem;
+		
+		width: 5rem;
+		height: 5rem;
+		
+		opacity: 0;
+		
+		transition: opacity 0.3s ease;
+		
+	}
+	.hamburger {
+		width: 4rem;
+		height: 4rem;
+	}
 }

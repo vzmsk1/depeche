@@ -10,3 +10,14 @@
 	
 	width: 66rem;
 }
+
+@media (max-width: 48em) {
+	.form {
+		height: auto;
+	}
+	.form > div {
+		margin-bottom: 6rem;
+		
+		width: 100%;
+	}
+}

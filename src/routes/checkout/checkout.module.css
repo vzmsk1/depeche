@@ -1,14 +1,6 @@
 .section {
 	display: grid;
-	grid-template-columns: 1fr 52rem;
-}
-
-.aside {
-	padding: 3rem;
-	
-	grid-column: 2/3;
-	
-	border-left: 1px solid #3a3a3a;
+	width: 100%;
 }
 
 .items {
@@ -39,6 +31,34 @@
 	color: var(--black);
 }
 
-.body {
-	grid-row: 1/2;
+@media (min-width: 48em) {
+	.section {
+		grid-template-columns: 1fr 52rem;
+	}
+	.aside {
+		padding: 3rem;
+		
+		grid-column: 2/3;
+		
+		border-left: 1px solid #3a3a3a;
+	}
+	.body {
+		grid-row: 1/2;
+	}
+}
+@media (max-width: 48em) {
+	.aside {
+		margin-bottom: 6rem;
+		padding-bottom: 3rem;
+		
+		grid-row: 1 / 2;
+		
+		border-bottom: 1px solid #3a3a3a;
+	}
+	.price {
+		font-size: 2.4rem;
+	}
+	.price span {
+		font-size: 3rem;
+	}
 }
